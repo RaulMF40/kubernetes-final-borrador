@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: frontend-v2-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: frontend-v2
   ports:

@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: backend-v1-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: backend-v1
   ports:
