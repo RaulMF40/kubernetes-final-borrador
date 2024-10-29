@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: full-stack-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /frontend/v1
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-v1-service
+                port:
+                  number: 80
+          - path: /frontend/v2
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-v2-service
+                port:
+                  number: 80
+          - path: /backend/v1
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-v1-service
+                port:
+                  number: 80
+          - path: /backend/v2
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-v2-service
+                port:
+                  number: 80

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-v2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend-v2
+  template:
+    metadata:
+      labels:
+        app: backend-v2
+    spec:
+      containers:
+        - name: backend-v2
+          image: raulmoya/dockerback:2.0.0 # ponemos una mia del docker, cogemos del ejercicio docker ponemos esta de mientras 
+          ports:
+            - containerPort: 80
